@@ -1,0 +1,18 @@
+{
+  "name": "puppet-byod_fact",
+  "version": "0.0.1",
+  "author": "Daniel Johnson",
+  "summary": "Reads who's device it is by marking a reg key or file with a username which is displayed as a custom fact",
+  "license": "Apache-2.0",
+  "source": "https://github.com/shadow-kun/puppet_byod_fact",
+  "project_page": "https://github.com/shadow-kun/puppet_byod_fact",
+  "issues_url": "https://github.com/shadow-kun/puppet_byod_fact/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+
