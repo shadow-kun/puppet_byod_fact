@@ -1,7 +1,7 @@
 # Class: byod_fact
 # ===========================
 #
-# Full description of class byod_fact here.
+# Reads custom facts that identify who's device
 #
 # Parameters
 # ----------
@@ -35,14 +35,26 @@
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Daniel Johnson <shadowreaper@shadowreaper.net>
 #
 # Copyright
 # ---------
 #
-# Copyright 2018 Your name here, unless otherwise noted.
+# Copyright 2018 Daniel Johnson.
 #
-class byod_fact {
-
-
+class puppet_byod_fact {
+  Factor.add('byod_username') do
+    confine :osfamily => :windows
+    setcode do
+      begin
+        value = nil
+        Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Puppet Labs\CustomFacts') do |regkey|
+          value = regkey['BYOD_Username']
+        end
+          value
+        rescue
+          nil
+        end
+    end
+  end
 }
