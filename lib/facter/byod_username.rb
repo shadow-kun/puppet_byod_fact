@@ -1,4 +1,4 @@
-Factor.add('byod_username') do
+Facter.add('byod_username') do
    confine :osfamily => :windows
    setcode do
         begin
