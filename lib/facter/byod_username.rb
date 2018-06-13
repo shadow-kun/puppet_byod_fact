@@ -18,9 +18,9 @@ Facter.add('byod_username') do
       when 'Darwin'
         begin
           value = nil
-          string = Facter::Util::Resolution.exec('defaults read puppet_byod "BYOD_Username"')
-          end
-          value
+          value = Facter::Util::Resolution.exec('defaults read puppet_byod "BYOD_Username"')
+
+          #value
         rescue
           nil
         end
