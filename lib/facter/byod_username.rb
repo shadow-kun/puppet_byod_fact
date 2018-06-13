@@ -15,6 +15,15 @@ Facter.add('byod_username') do
         rescue
           nil
         end
+      when 'Darwin'
+        begin
+          value = nil
+          string = Facter::Util::Resolution.exec('defaults read puppet_byod "BYOD_Username"')
+          end
+          value
+        rescue
+          nil
+        end
       else
         # when other OS, do nothing
         value = nil
